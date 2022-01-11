@@ -5,7 +5,7 @@ module.exports = function toReadable (number) {
     const hundreds = ["", "one hundred", "two hundred", "three hundred", "four hundred", "five hundred", "six hundred", "seven hundred", "eight hundred", "nine hundred"];
     const tens = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
     const units = ["", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
-    const zzz = ["","ten",  "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"];
+    const zzz = ["", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"];
 
     let h = "";
     let t = "";
@@ -16,7 +16,17 @@ module.exports = function toReadable (number) {
 
     if (number = 0){ return 'zero'}
 
-    if(num.length === 3 && num[1] > "19") {return hundreds[num[0]] + " " + tens[num[1]] + " " + units[num[2]]}
+    if(num.length === 3 ){
+
+        if(num[1] > "19") {return hundreds[num[0]] + " " + tens[num[1]] + " " + units[num[2]]}
+        if( num[1] < "19" && num[1] > "10") {return hundreds[num[0]] + " " + zzz[num[2]] + " "}
+
+
+    }
+
+  
+
+
 
 
 
